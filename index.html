@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Francisco Ortiz</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="questions.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+
+
+    <header>
+
+
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="https://ffortizn.github.io/">Francisco Ortiz</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav nav-tabs">
+                    <!-- <a class="nav-item nav-link" href="#">Portfolio</a> -->
+                    <a class="nav-item nav-link" href="#">Password generator</a>
+                    <!-- <a class="nav-item nav-link" href="#">Time based quiz</a>
+                <a class="nav-item nav-link" href="#">Contact</a>
+                <a class="nav-item nav-link" href="#">About</a> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <br><br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Timer based quiz</h2>
+            </div>
+            <div class="card-body" id="quiz">
+
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn-lg btn-danger col-md-3" onclick="generatePassword()"> Take quiz </button>
+                <button class="btn-lg btn-warning col-md-3" onclick="copyToClipboard()"> See restulst </button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        Copyright &copy; 2019 - Francisco Ortiz
+    </footer>
+
+    <script>
+        function generateQuiz() {
+            var quiz = $('#quiz');
+            var question = $('#quiz');
+            var title;
+            var choices;
+
+            for (let i = 0; i < questions.length; ++i) {
+                question = $("<div>").attr("id", "question" + (i+1)).addClass("control-row");
+                    $('#quiz').append(question);
+
+                title = $("<div>").attr("id", "title" + (i+1)).html((i+1) + ". " + questions[i].title );
+                    $('#question'+(i+1)).append(title);
+                    
+                for (let j = 0; j < questions[i].choices.length;++j){
+                    choices = $("<div>").attr("id", "choices" +(i+1)+"-"+(j+1)).html((i+1)+"-"+(j+1)+ ". " + questions[i].choices[j] );
+                    $('#question'+(i+1)).append(choices);
+                }
+                console.log(questions[i]);
+            }
+        }
+        generateQuiz();
+    </script>
+</body>
+
+</html>
