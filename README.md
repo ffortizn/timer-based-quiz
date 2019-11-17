@@ -12,7 +12,7 @@ Web browser: we recommend google chrome
 N/A
 
 ## Running
-![picture](screenshot.png)
+<!-- ![picture](screenshot.png) -->
 
 ## Built With
 * HTML
